@@ -28,7 +28,7 @@
 
 from collections import defaultdict
 from math import ceil, floor, sqrt
-
+from typing import List, Tuple, Union
 
 # For nicer printing of results
 FIGURATE_LABELS = {
@@ -51,7 +51,7 @@ FIGURATE_QUADRATIC_PARAMETERS = {
 }
 
 
-def quadratic_lower_limit(a, b, c):
+def quadratic_lower_limit(a: Union[float, int], b: Union[float, int], c: Union[float, int]) -> int:
     """
     Given an inequality of the form:
         a*x^2 + b*x + c >= 0,
@@ -76,7 +76,7 @@ def quadratic_lower_limit(a, b, c):
     return ceil((-b + sqrt(b**2 - 4*a*c)) / (2*a))
 
 
-def quadratic_upper_limit(a, b, c):
+def quadratic_upper_limit(a: Union[float, int], b: Union[float, int], c: Union[float, int]) -> int:
     """
     Given an inequality of the form:
         a*x^2 + b*x + c < 0,
@@ -101,7 +101,7 @@ def quadratic_upper_limit(a, b, c):
     return floor((-b + sqrt(b ** 2 - 4 * a * c)) / (2 * a)) + 1
 
 
-def main():
+def main() -> List[Tuple[int, int, int]]:
     """
     Returns the only ordered set of six 4-digit numbers for which the following are true:
       * The set is cyclic, meaning the last two digits of each number is the first two digits of the next number,
